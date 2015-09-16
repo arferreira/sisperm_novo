@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   root 'manage#admin'
 
   get 'scales/scale_save'
-  
+
 end
+

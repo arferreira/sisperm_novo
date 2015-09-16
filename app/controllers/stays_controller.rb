@@ -1,4 +1,5 @@
 class StaysController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_stay, only: [:show, :edit, :update, :destroy]
   layout 'stays'
   # GET /stays
