@@ -26,7 +26,7 @@
       <tr>
         <td><%= link_to job.id, job_path(job) %></td>
         <td><%= job.user.login %></td>
-        <td><%= job.day_thread %></td>
+        <td><%= job.created_at.strftime("%d/%m/%Y") %></td>
         <td><%= job.alteration %></td>
 
       </tr>
