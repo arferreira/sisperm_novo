@@ -1,0 +1,21 @@
+<%= form_for @stay do |f| %>
+  <div class="form-group">
+    <%= f.label :"Usuário", :class => 'control-label' %>
+    
+    <%= f.collection_select(:user_id, User.all, :id, :login, {prompt: "Selecione um Usuário"}, {class: "form-control"}) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :"Nome", :class => 'control-label' %>
+    <%= f.text_field :name, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :"Situação", :class => 'control-label' %><br />
+    <%= f.check_box :status, :class => '' %> | <span style="color:red;">Marcado = ativo | Desmarcado = inativo</span>
+  </div>
+<br />
+  <div class="form-actions">
+    <%= f.submit "Salvar", :class => 'btn btn-primary' %>
+    <%= link_to 'Cancelar',
+                stays_path, :class => 'btn btn-danger ' %>
+  </div>
+<% end %>

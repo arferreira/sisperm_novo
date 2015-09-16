@@ -1,0 +1,28 @@
+<%= form_for @scale do |f| %>
+  <div class="form-group">
+    <%= f.label :stay_id, :class => 'control-label' %>
+    <%= f.number_field :stay_id, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :day_scale, :class => 'control-label' %>
+    <%= f.date_select :day_scale, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :month_scale, :class => 'control-label' %>
+    <%= f.date_select :month_scale, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :year_scale, :class => 'control-label' %>
+    <%= f.date_select :year_scale, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :status, :class => 'control-label' %>
+    <%= f.check_box :status, :class => 'form-control' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                scales_path, :class => 'btn' %>
+  </div>
+<% end %>

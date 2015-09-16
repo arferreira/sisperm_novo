@@ -1,0 +1,25 @@
+<% if notice %>
+<div class="alert alert-dismissible alert-success">
+ <button type="button" class="close" data-dismiss="alert">×</button>
+<p id="notice"><%= notice %></p>
+</div>
+<% end %>
+<div class="jumbotron">
+<p>
+  <strong>Nome (Servidor):</strong>
+  <%= @server.name %>
+</p>
+
+<p>
+  <strong>IP (Servidor):</strong>
+  <%= @server.ip %>
+</p>
+
+<p>
+  <strong>Dia da Semana (Backup):</strong>
+  <%= @server.day_week %>
+</p>
+
+<%= link_to 'Editar', edit_server_path(@server), :class => 'btn btn-warning' %> |
+<%= link_to 'Voltar', servers_path, :class => 'btn btn-danger' %>
+</div>

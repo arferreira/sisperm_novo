@@ -1,0 +1,2 @@
+class JobsNotifier < ApplicationMailer
+end

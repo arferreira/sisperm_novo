@@ -1,0 +1,63 @@
+<%= render 'shared/menuManage' %>
+
+
+<div class="bs-docs-section clearfix">
+  <div class="row">
+    <div class="col-lg-3" style="margin-top:60px;">
+
+    <div class="panel panel-primary">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Permanências(<%= @stay.count %>)</h3>
+	  </div>
+	  <div class="panel-body">
+	    <% @stay.each do |stay| %>
+	    	<p style="<% if  stay.status %> color:green; <% else %> color:red; <% end %>"><%= link_to stay.name, stay %></p>
+	    <% end %>
+	  </div>
+	</div>
+
+</div>
+<div class="col-lg-3" style="margin-top:60px;">
+
+    <div class="panel panel-success">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Usuários(<%= @user.count %>)</h3>
+	  </div>
+	  <div class="panel-body">
+	    <% @user.each do |user| %>
+	    	<p><a><%= user.login %></a></p>
+	    <% end %>
+	  </div>
+	</div>
+
+</div>
+<div class="col-lg-3" style="margin-top:60px;">
+
+    <div class="panel panel-warning">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Escala Permanência(Semana)</h3>
+	  </div>
+	  <div class="panel-body">
+	    <% @user.each do |user| %>
+	    	<p><a><%= user.login %></a></p>
+	    <% end %>
+	  </div>
+	</div>
+
+</div>
+<div class="col-lg-3" style="margin-top:60px;">
+
+    <div class="panel panel-info">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Servidores (<%= @server.count %>)</h3>
+	  </div>
+	  <div class="panel-body">
+	    <% @server.each do |server| %>
+	    	<p><%= link_to server.name, server %></p>
+	    <% end %>
+	  </div>
+	</div>
+
+</div>
+</div>
+</div>

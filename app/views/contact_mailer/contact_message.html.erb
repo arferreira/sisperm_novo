@@ -1,0 +1,25 @@
+<div style="background:#dfdfdf; width:100%; ">
+	
+	<div style="">
+		<h1>Serviço Permanência ao ETI</h1>
+		<hr />
+	</div>
+	<br  />
+	<div>
+		<h4>Militar: <span><%= @job.user.login %></span> </h4><br />
+		<h4>Dia do Serviço: <span><%= @job.day_thread %></span></h4><br />
+		<h4>Alterações no serviço:</h4><br />
+		<p><%= @job.alteration %></p>
+	</div>
+	<div>
+		<hr />
+		<h2>Backups do dia:</h2>
+		<% backups = Backups.where(:job_id => @job.id) %>
+
+		<% backups.each do |backup| %>
+			<p><%= backup.server.name %> | <%= backup.server.ip %></p>
+		<% end %>
+		<hr />
+	</div>
+	<p>SISPERM - Sistema de Permanência ao ETI - 2015</p>
+</div>

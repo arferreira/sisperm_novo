@@ -1,0 +1,40 @@
+<%- model_class = Scale -%>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      
+      <th><%= model_class.human_attribute_name(:"Permanência") %></th>
+      <th><%= model_class.human_attribute_name(:"Dia") %></th>
+      <th><%= model_class.human_attribute_name(:"Situação") %></th>
+
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scales.each do |scale| %>
+      <tr>
+        <td><%= scale.stay.user.login %></td>
+        <td><%= scale.day_scale.strftime('%d/%m/%Y') %></td>
+        <% if scale.status %>
+        <td>Válido</td>
+        <% else %>
+        <td>Trocado</td>
+        <% end %>
+        <td>
+          <%= link_to 'Realizar Troca',
+                      edit_scale_path(scale), :class => 'btn btn-danger btn-xs' %>
+          </td>
+      </tr>
+      
+    <% end %>
+  </tbody>
+</table>
+
+<div style="height:200px;">
+<%= link_to 'Gerar Escala',
+            {:controller => 'scales', :action => 'scale_save'}, :class => 'btn btn-primary btn-sm' %>
+<%= link_to 'Imprimir',
+            {:controller => 'report', :action => 'scale'}, :class => 'btn btn-warning btn-sm' %>
+</div>           
+<br />

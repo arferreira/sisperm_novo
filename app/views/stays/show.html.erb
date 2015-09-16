@@ -1,0 +1,27 @@
+<%- model_class = Stay -%>
+
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:"Usuário") %>:</strong></dt>
+  <dd><%= @stay.user.login %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:"Nome") %>:</strong></dt>
+  <dd><%= @stay.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:"Situação") %>:</strong></dt>
+  <% if @stay.status %>
+  <dd style="color:green;">Ativo</dd>
+  <% else %>
+  <dd style="color:red;">Inativo</dd>
+  <% end %>
+</dl>
+
+<div class="form-actions">
+  <%= link_to 'Voltar',
+              stays_path, :class => 'btn btn-warning btn-sm'  %>
+  <%= link_to 'Editar',
+              edit_stay_path(@stay), :class => 'btn btn-primary btn-sm' %>
+  <%= link_to 'Excluir',
+              stay_path(@stay),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem certeza?')) },
+              :class => 'btn btn-danger btn-sm' %>
+</div>

@@ -1,0 +1,39 @@
+<%- model_class = Job -%>
+
+
+<%= search_form_for @q do |f| %>
+
+
+  <%= f.label :"Buscar serviço" %><br />
+  <%= f.search_field :alteration_cont, :class => 'form-control' %>
+  <br />
+  <%= f.submit 'Buscar', :class => 'btn btn-primary btn-sm', :placeholder => 'Informe as alterações que procura ...' %>
+<% end %>
+<br />
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:"Código") %></th>
+      <th><%= model_class.human_attribute_name(:"Usuário") %></th>
+      <th><%= model_class.human_attribute_name(:"Dia") %></th>
+      <th><%= model_class.human_attribute_name(:"Alterações") %></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= link_to job.id, job_path(job) %></td>
+        <td><%= job.user.login %></td>
+        <td><%= job.day_thread %></td>
+        <td><%= job.alteration %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Novo",
+            new_job_path,
+            :class => 'btn btn-primary' %>

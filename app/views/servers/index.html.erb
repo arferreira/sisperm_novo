@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Nome(Servidor)</th>
+      <th>IP (Servidor)</th>
+      <th>Dia da semana</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @servers.each do |server| %>
+      <tr>
+        <td><%= server.name %></td>
+        <td><%= server.ip %></td>
+        <td><%= server.day_week %></td>
+        <td><%= link_to 'Exibir', server %></td>
+        <td><%= link_to 'Editar', edit_server_path(server) %></td>
+        <td><%= link_to 'Excluir', server, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Incluir Novo', new_server_path, :class => 'btn btn-primary' %>

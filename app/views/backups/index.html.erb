@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Backups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Server</th>
+      <th>Job</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @backups.each do |backup| %>
+      <tr>
+        <td><%= backup.server %></td>
+        <td><%= backup.job %></td>
+        <td><%= link_to 'Show', backup %></td>
+        <td><%= link_to 'Edit', edit_backup_path(backup) %></td>
+        <td><%= link_to 'Destroy', backup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Backup', new_backup_path %>

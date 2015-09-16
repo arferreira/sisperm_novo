@@ -1,0 +1,6 @@
+/* Manage
+ * Bootswatch
+ *= require_self
+ *= require manage/loader
+ *= require manage/bootswatch
+*/

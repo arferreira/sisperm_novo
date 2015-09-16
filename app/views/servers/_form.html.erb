@@ -1,0 +1,31 @@
+<%= form_for(@server) do |f| %>
+  <% if @server.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@server.errors.count, "error") %> prohibited this server from being saved:</h2>
+
+      <ul>
+      <% @server.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :"Nome (Servidor)" %><br>
+    <%= f.text_field :name, :class => 'form-control', :placeholder => 'Ex: Db7-Projetos-Web' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :"IP (Servidor)" %><br>
+    <%= f.text_field :ip, :class => 'form-control', :placeholder => 'Ex: 10.152.16.1' %>
+  </div>
+  <div class="field">
+    <% @options = options_for_select([['Domingo'], ['Segunda-Feira'], ['Terça-Feira'], ['Quarta-feira'], ['Quinta-Feira'], ['Sexta-Feira'], ['Sábado']]) %>  
+    <%= f.select(:day_week, @options,{},{:class => 'form-control', :id => 'select'}) %>
+    
+  </div>
+  <br />
+  <div class="form-group">
+    <%= f.submit 'Incluir', :class => 'btn btn-warning' %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<%- model_class = Job -%>
+
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:"Militar") %>:</strong></dt>
+  <dd><%= @job.user.login %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:"Dia de Serviço") %>:</strong></dt>
+  <dd><%= @job.day_thread %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:"Alterações") %>:</strong></dt>
+  <dd><%= @job.alteration %></dd>
+</dl>
+<h4>Backups do dia</h4><hr />
+<% if @job.backups.present? %>
+<dl class="dl-horizontal">
+    <div class="list-group">
+    <% @job.backups.each do |backup|  %>
+
+    <dt class="list-group-item"><strong>Servidor:</strong></dt>
+    <dd class="list-group-item"><%= backup.server.name %></dd>
+    <% end %>
+    </div>
+</dl>
+<% else %>
+<div class="alert alert-dismissible alert-success">
+<p>Militar não realizou Backup!</p>
+</div>
+<% end %>
+<div class="form-actions">
+  <%= link_to 'Voltar',
+              jobs_path, :class => 'btn btn-danger'  %>
+  
+</div>

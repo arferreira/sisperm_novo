@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stay_id: 
+  day_scale: 2015-09-14
+  month_scale: 2015-09-14
+  year_scale: 2015-09-14
+  status: false
+
+two:
+  stay_id: 
+  day_scale: 2015-09-14
+  month_scale: 2015-09-14
+  year_scale: 2015-09-14
+  status: false

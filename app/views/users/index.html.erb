@@ -1,0 +1,36 @@
+<%- model_class = User -%>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:"Código") %></th>
+      <th><%= model_class.human_attribute_name(:"Usuário") %></th>
+      <th><%= model_class.human_attribute_name(:"Qtde de Logins") %></th>
+      <th><%= model_class.human_attribute_name(:"Atual Autenticação") %></th>
+      <th><%= model_class.human_attribute_name(:"Última Autenticação") %></th>
+      <th><%= model_class.human_attribute_name(:"Atual IP") %></th>
+      <th><%= model_class.human_attribute_name(:"Último IP") %></th>
+      <th><%= model_class.human_attribute_name(:"Criado em:") %></th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.id, user_path(user) %></td>
+        <td><%= user.login %></td>
+        <td><%= user.sign_in_count %></td>
+        <td><%= user.current_sign_in_at %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td><%= user.current_sign_in_ip %></td>
+        <td><%= user.last_sign_in_ip %></td>
+        <td><%=l user.created_at %></td>
+        <td>
+          <td></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

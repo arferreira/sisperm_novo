@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  server_id: 
+  date_service: 2015-09-14
+  obs: MyText
+
+two:
+  user_id: 
+  server_id: 
+  date_service: 2015-09-14
+  obs: MyText
