@@ -31,24 +31,27 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
+
     @job = Job.new(job_params)
-
-
+    @user = job_params[:user_id]
+    p "Usuario = #{@user}"
+    respond_to do |format|
       if @job.save
 
-        contact = current_user.login
-        email = "#{current_user.login}@bacg.intraer"
-        puts @job.id
+        contact = User.where(:id => @user).first
+        email = "#{contact.login}@bacg.intraer"
+        puts @job
         job = Job.find(@job.id)
-        ContactMailer.contact_message(contact, job, email).deliver
+        ContactMailer.contact_message(contact.login, @job, email).deliver
 
-          redirect_to :controller => 'manage', :action => 'stay', notice: 'Serviço passado!'
-
+        format.html { redirect_to root_path, notice: 'Serviço cadastrado com sucesso!' }
+        format.json { render :show, status: :created, location: @job }
       else
-        redirect_to new_job_path, notice: 'Não foi possivel passar serviço.'
+        
         format.html { render :new }
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
+    end
 
   end
 

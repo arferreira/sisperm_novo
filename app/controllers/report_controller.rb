@@ -4,5 +4,8 @@ class ReportController < ApplicationController
   	@scales = Scale.by_month(Time.now.month)
   	p @scales
   end
+  def service
+  	@jobs = Job.all
+  end
 
 end

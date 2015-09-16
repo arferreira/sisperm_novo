@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'report/scale'
+  get  'report/service'
 
   resources :scales, :only => [:index, :edit, :scale_save]
   resources :stays

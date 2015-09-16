@@ -24,8 +24,14 @@
   <body>
    
     <div class="container theme-showcase">
-
-    <%= render 'shared/menuManage' %> 
+    <%=
+       if current_user.login == 'barellywgp' || current_user.login == 'bazzananas' || current_user.login == 'kaiquejcs' || current_user.login == 'mirallesfvo' || current_user.login == 'cordobalm'
+         render 'shared/menuManage' 
+    else current_user.login == 'ricardosouzaf' || current_user.login == 'vanonidv' || current_user.login == 'zagor' || current_user.login == 'martinsjb' || current_user.login == 'massariolmc' || current_user.login == 'patrickls' || current_user.login == 'anacarolinams'    
+     render 'shared/menuManage'
+    end
+    %>  
+    
     <div class="bs-docs-section clearfix">
         <div class="row">
           <div class="col-lg-12" style="margin-top:60px;"> 

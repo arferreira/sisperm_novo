@@ -20,7 +20,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configurações <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Editar</a></li>
-                <li><a href="#">Relatórios</a></li>
+                <li><%= link_to 'Relatório SV', :controller => 'report', :action => 'service' %></li>
                 <% if user_signed_in? %>
 
                 <li><%= link_to('Sair', destroy_user_session_path, :method => :delete) %></li>        

@@ -1,0 +1,29 @@
+<a href="#" onclick="window.print();return false;">Imprimir</a> 
+<div class="page-header">
+              <center><h1 id="tables">Relatório de serviços (Permanência ao ETI) - SISPERM</h1></center>
+    </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+
+      
+      <th>Código</th>
+      <th>Militar</th>
+      <th>Dia</th>
+      <th>Alterações</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+      	<td><%= job.id  %></td>
+        <td><%= job.user.login %></td>
+        <td><%= job.day_thread %></td>
+        <td><%= job.alteration %></td>
+        
+      </tr>
+      
+    <% end %>
+  </tbody>
+</table>
